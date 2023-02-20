@@ -6,7 +6,7 @@
 <form method="POST">
   {%csrf_token%} {{form}}
   <p>Etes vous sûr de vouloir supprimer {{post.title}}</p>
-  <input type="submit" value="Oui, supprimer" />
+  <input type="submit" value="Oui, supprimer" class="btn btn-delete" />
 </form>
 
 {% endblock %}

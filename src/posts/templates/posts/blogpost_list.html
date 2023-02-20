@@ -5,19 +5,21 @@
 <h1>Le blog d'Eric</h1>
 {% for post in posts %}
 <article>
-  <h2>{{ post.title }}</h2>
-  {%if request.user.is_authenticated%}
-  <div>
-    <a href="{%url 'posts:edit' slug=post.slug%}">Editer</a>
-    <a href="{%url 'posts:delete' slug=post.slug%}">Supprimer</a>
+  <div class="post-title">
+    <h2>{{ post.title }}</h2>
+    {%if request.user.is_authenticated%}
+    <div>
+      <a href="{%url 'posts:edit' slug=post.slug%}">Editer</a>
+      <a href="{%url 'posts:delete' slug=post.slug%}">Supprimer</a>
+    </div>
+    {%endif%}
   </div>
-  {%endif%}
-  <h5>
+  <h5 class="post_author">
     Publié par <i>{{ post.author_or_default }}</i> le {{ post.created_at}}
   </h5>
-  <p>{{ post.content|safe|truncatewords:50 }}</p>
+  <p class="post-excerpt">{{ post.content|safe|truncatewords:50 }}</p>
   <form action="{%url 'posts:post' slug=post.slug%}">
-    <button>Accéder à l'article</button>
+    <button class="btn btn-submit">Accéder à l'article</button>
   </form>
-  {% endfor %} {% endblock %}
 </article>
+{% endfor %} {% endblock %}
