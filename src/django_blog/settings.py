@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'posts'
 ]
 
 MIDDLEWARE = [
@@ -77,10 +78,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'django_blog',
-        'USER':'blogadmin',
-        'PASSWORD':'secret',
-        'HOST':'localhost',
-        'PORT':'5432'
+        'USER': 'blogadmin',
+        'PASSWORD': 'secret',
+        'HOST': 'localhost',
+        'PORT': '5432'
     }
 }
 
