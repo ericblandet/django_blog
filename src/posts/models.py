@@ -2,6 +2,8 @@ from django.template.defaultfilters import slugify
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
+from django.templatetags.static import static
+
 
 User = get_user_model()
 
@@ -15,6 +17,7 @@ class BlogPost(models.Model):
     created_at = models.DateField(blank=True, null=True)
     published = models.BooleanField(default=False, verbose_name="Publié")
     content = models.TextField(blank=True, verbose_name="Contenu")
+    thumbnail = models.ImageField(blank=True, upload_to='blog')
 
     class Meta:
         ordering = ['-created_at']
@@ -31,6 +34,10 @@ class BlogPost(models.Model):
     @property
     def author_or_default(self):
         return self.author.username if self.author else "l'auteur inconnu"
+
+    @property
+    def picture_or_default(self):
+        return self.thumbnail.url if self.thumbnail else static('img/no_picture.jpg')
 
     def get_absolute_url(self):
         return reverse('posts:home')

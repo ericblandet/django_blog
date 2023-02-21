@@ -4,6 +4,7 @@
 
 <article class="post-detail">
   <h1>{{post.title}}</h1>
+  <img src="{{post.picture_or_default}}" alt="l'image de l'article">
   <div>{{post.content|linebreaks|safe}}</div>
 </article>
 {% endblock %}
