@@ -82,11 +82,11 @@ WSGI_APPLICATION = 'django_blog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': env('BDD_ENGINE'),
-        'NAME': 'django_blog',
-        'USER': 'blogadmin',
-        'PASSWORD': 'secret',
-        'HOST': 'localhost',
-        'PORT': '5432'
+        'NAME': env('BDD_NAME'),
+        'USER': env('BDD_USER'),
+        'PASSWORD': env('BDD_PASSWORD'),
+        'HOST': env('BDD_HOST'),
+        'PORT': env('BDD_PORT'),
     }
 }
 
