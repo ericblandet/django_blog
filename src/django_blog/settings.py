@@ -86,7 +86,7 @@ DATABASES = {
         'USER': env('BDD_USER'),
         'PASSWORD': env('BDD_PASSWORD'),
         'HOST': env('BDD_HOST'),
-        'PORT': env('BDD_PORT'),
+        'PORT': env('BDD_PORT', default=''),
     }
 }
 
